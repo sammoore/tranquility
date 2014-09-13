@@ -73,7 +73,6 @@
                                     <outlet property="foodCalories" destination="yiA-9h-U1q" id="xx6-TN-984"/>
                                     <outlet property="foodIcon" destination="558-ql-NaE" id="4gd-Ic-aIY"/>
                                     <outlet property="foodTitle" destination="uKC-wL-Fe4" id="CCU-bN-dsO"/>
-                                    <segue destination="jgy-dW-h2Y" kind="show" id="gj6-AI-0YV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,7 +97,7 @@
                         <viewControllerLayoutGuide type="bottom" id="uTu-2S-qMH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bs2-eY-Jr9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

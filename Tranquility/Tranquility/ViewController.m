@@ -90,17 +90,11 @@
 - (void)repositionScrollView:(UIScrollView *)scrollView
 {
     CGFloat superHeight = [[scrollView superview] bounds].size.height;
-    //NSLog(@"%f", superHeight);
     CGFloat scrollViewOffset = _targetContentY;;
-    
     _oldContentY = [scrollView contentOffset].y;
     
     int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
     int oldOffsetRatio = (int)superHeight / (int)_oldContentY;
-    
-    NSLog(@"%f %f %d %d", scrollViewOffset, _oldContentY, oldOffsetRatio, newOffsetRatio);
-    
-    //NSLog(@"%d", offsetRatio);
     
     if (newOffsetRatio == -1)
     {
@@ -110,13 +104,6 @@
     {
         [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
     }
-//    else if ()
-//    {
-//        [scrollView setContentOffset:CG]
-//    }
-    
-    
-    
 }
 
 #pragma mark - APParallaxViewDelegate
