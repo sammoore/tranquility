@@ -11,6 +11,14 @@
 		2276682719C4AC26009254D0 /* TRPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276682419C4AC26009254D0 /* TRPieChartView.m */; };
 		2276682819C4AC26009254D0 /* TRPieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2276682519C4AC26009254D0 /* TRPieChartView.xib */; };
 		2276682B19C4AD5F009254D0 /* SummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276682A19C4AD5F009254D0 /* SummaryView.m */; };
+		229EC4B719C502B3003556E9 /* PebbleKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4B619C502B3003556E9 /* PebbleKit.framework */; };
+		229EC4B919C502BC003556E9 /* PebbleVendor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4B819C502BC003556E9 /* PebbleVendor.framework */; };
+		229EC4BB19C502CF003556E9 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4BA19C502CF003556E9 /* ExternalAccessory.framework */; };
+		229EC4BD19C502D6003556E9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4BC19C502D6003556E9 /* libz.dylib */; };
+		229EC4BF19C502DC003556E9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4BE19C502DC003556E9 /* CoreBluetooth.framework */; };
+		229EC4C119C502E1003556E9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4C019C502E1003556E9 /* CoreMotion.framework */; };
+		229EC4C319C502E6003556E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4C219C502E6003556E9 /* CFNetwork.framework */; };
+		229EC4C519C502EB003556E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4C419C502EB003556E9 /* MessageUI.framework */; };
 		22A5DEE019C41AF30098B154 /* SummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A5DEDF19C41AF30098B154 /* SummaryView.xib */; };
 		8B4B085419C4ED2400DE5906 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B084419C4ED2400DE5906 /* Icon-60.png */; };
 		8B4B085519C4ED2400DE5906 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B084519C4ED2400DE5906 /* Icon-60@2x.png */; };
@@ -71,6 +79,14 @@
 		2276682519C4AC26009254D0 /* TRPieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPieChartView.xib; sourceTree = "<group>"; };
 		2276682919C4AD5F009254D0 /* SummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryView.h; sourceTree = "<group>"; };
 		2276682A19C4AD5F009254D0 /* SummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryView.m; sourceTree = "<group>"; };
+		229EC4B619C502B3003556E9 /* PebbleKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleKit.framework; sourceTree = "<group>"; };
+		229EC4B819C502BC003556E9 /* PebbleVendor.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PebbleVendor.framework; sourceTree = "<group>"; };
+		229EC4BA19C502CF003556E9 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		229EC4BC19C502D6003556E9 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		229EC4BE19C502DC003556E9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		229EC4C019C502E1003556E9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		229EC4C219C502E6003556E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		229EC4C419C502EB003556E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22A5DEDF19C41AF30098B154 /* SummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryView.xib; sourceTree = "<group>"; };
 		8B4B084419C4ED2400DE5906 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		8B4B084519C4ED2400DE5906 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
@@ -141,6 +157,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				229EC4C519C502EB003556E9 /* MessageUI.framework in Frameworks */,
+				229EC4C319C502E6003556E9 /* CFNetwork.framework in Frameworks */,
+				229EC4C119C502E1003556E9 /* CoreMotion.framework in Frameworks */,
+				229EC4BF19C502DC003556E9 /* CoreBluetooth.framework in Frameworks */,
+				229EC4BD19C502D6003556E9 /* libz.dylib in Frameworks */,
+				229EC4BB19C502CF003556E9 /* ExternalAccessory.framework in Frameworks */,
+				229EC4B919C502BC003556E9 /* PebbleVendor.framework in Frameworks */,
+				229EC4B719C502B3003556E9 /* PebbleKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +190,26 @@
 			name = TRPieChart;
 			sourceTree = "<group>";
 		};
+		229EC4C619C50339003556E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				229EC4C419C502EB003556E9 /* MessageUI.framework */,
+				229EC4C219C502E6003556E9 /* CFNetwork.framework */,
+				229EC4BC19C502D6003556E9 /* libz.dylib */,
+				229EC4C019C502E1003556E9 /* CoreMotion.framework */,
+				229EC4BE19C502DC003556E9 /* CoreBluetooth.framework */,
+				229EC4BA19C502CF003556E9 /* ExternalAccessory.framework */,
+				229EC4B819C502BC003556E9 /* PebbleVendor.framework */,
+				229EC4B619C502B3003556E9 /* PebbleKit.framework */,
+			);
+			name = Frameworks;
+			path = Tranquility;
+			sourceTree = "<group>";
+		};
 		8B830FFB19C3EBCB007B2767 = {
 			isa = PBXGroup;
 			children = (
+				229EC4C619C50339003556E9 /* Frameworks */,
 				8B83100619C3EBCB007B2767 /* Tranquility */,
 				8B83102019C3EBCB007B2767 /* TranquilityTests */,
 				8B83100519C3EBCB007B2767 /* Products */,
@@ -563,9 +604,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tranquility",
+				);
 				INFOPLIST_FILE = Tranquility/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -575,9 +621,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tranquility",
+				);
 				INFOPLIST_FILE = Tranquility/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
