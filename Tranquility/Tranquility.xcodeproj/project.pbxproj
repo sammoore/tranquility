@@ -45,10 +45,12 @@
 		8B83102419C3EBCB007B2767 /* TranquilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83102319C3EBCB007B2767 /* TranquilityTests.m */; };
 		8B83102F19C3F9E6007B2767 /* FoodTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83102E19C3F9E6007B2767 /* FoodTableViewCell.m */; };
 		8B83103619C3FC6B007B2767 /* UIScrollView+APParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83103519C3FC6B007B2767 /* UIScrollView+APParallaxHeader.m */; };
+		8BB2CF2119C4F47200F24F59 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BB2CF2019C4F47200F24F59 /* AddressBook.framework */; };
 		8BB3695419C4E06F00D81D57 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3695319C4E06F00D81D57 /* LoginViewController.m */; };
 		8BB3695719C4E5EE00D81D57 /* TRChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3695619C4E5EE00D81D57 /* TRChart.m */; };
 		8BB3695A19C4E5FA00D81D57 /* TRFood.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3695919C4E5FA00D81D57 /* TRFood.m */; };
 		8BB3695D19C4E9D800D81D57 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB3695C19C4E9D800D81D57 /* DetailsViewController.m */; };
+		8BC6E74E19C4F67200BF9F7A /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC6E74D19C4F67200BF9F7A /* AddressBookUI.framework */; };
 		8BCB5F8E19C4D85F00D4CBCA /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB5F7C19C4D85F00D4CBCA /* AFHTTPRequestOperation.m */; };
 		8BCB5F8F19C4D85F00D4CBCA /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB5F7E19C4D85F00D4CBCA /* AFHTTPRequestOperationManager.m */; };
 		8BCB5F9019C4D85F00D4CBCA /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BCB5F8019C4D85F00D4CBCA /* AFHTTPSessionManager.m */; };
@@ -121,6 +123,7 @@
 		8B83102E19C3F9E6007B2767 /* FoodTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodTableViewCell.m; sourceTree = "<group>"; };
 		8B83103419C3FC6B007B2767 /* UIScrollView+APParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+APParallaxHeader.h"; sourceTree = "<group>"; };
 		8B83103519C3FC6B007B2767 /* UIScrollView+APParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+APParallaxHeader.m"; sourceTree = "<group>"; };
+		8BB2CF2019C4F47200F24F59 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		8BB3695219C4E06F00D81D57 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8BB3695319C4E06F00D81D57 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8BB3695519C4E5EE00D81D57 /* TRChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRChart.h; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 		8BB3695919C4E5FA00D81D57 /* TRFood.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRFood.m; sourceTree = "<group>"; };
 		8BB3695B19C4E9D800D81D57 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		8BB3695C19C4E9D800D81D57 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		8BC6E74D19C4F67200BF9F7A /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		8BCB5F7B19C4D85F00D4CBCA /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		8BCB5F7C19C4D85F00D4CBCA /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		8BCB5F7D19C4D85F00D4CBCA /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				229EC4BB19C502CF003556E9 /* ExternalAccessory.framework in Frameworks */,
 				229EC4B919C502BC003556E9 /* PebbleVendor.framework in Frameworks */,
 				229EC4B719C502B3003556E9 /* PebbleKit.framework in Frameworks */,
+				8BC6E74E19C4F67200BF9F7A /* AddressBookUI.framework in Frameworks */,
+				8BB2CF2119C4F47200F24F59 /* AddressBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +199,8 @@
 		229EC4C619C50339003556E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BC6E74D19C4F67200BF9F7A /* AddressBookUI.framework */,
+				8BB2CF2019C4F47200F24F59 /* AddressBook.framework */,
 				229EC4C419C502EB003556E9 /* MessageUI.framework */,
 				229EC4C219C502E6003556E9 /* CFNetwork.framework */,
 				229EC4BC19C502D6003556E9 /* libz.dylib */,

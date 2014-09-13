@@ -12,8 +12,9 @@
 #import "TRFood.h"
 
 @interface TRAPIClient : NSObject
-+ (void)loginWith:(NSString *)phone block:(void(^)(BOOL success))block;
++ (void)loginWith:(NSString *)phone block:(void(^)(BOOL success, NSString *phone))block;
 + (void)setAccessKey:(NSString *)accessKey;
 + (void)getDataWithBlock:(void(^)(BOOL success, TRChart *chart, NSArray *foods))block;
++ (NSString *)accessKey;
 
 @end
