@@ -42,7 +42,7 @@
 		2276682519C4AC26009254D0 /* TRPieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPieChartView.xib; sourceTree = "<group>"; };
 		2276682919C4AD5F009254D0 /* SummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryView.h; sourceTree = "<group>"; };
 		2276682A19C4AD5F009254D0 /* SummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryView.m; sourceTree = "<group>"; };
-		22A5DEDF19C41AF30098B154 /* SummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SummaryView.xib; path = ../../../../Documents/SummaryView.xib; sourceTree = "<group>"; };
+		22A5DEDF19C41AF30098B154 /* SummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryView.xib; sourceTree = "<group>"; };
 		8B83100419C3EBCB007B2767 /* Tranquility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B83100819C3EBCB007B2767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B83100919C3EBCB007B2767 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
