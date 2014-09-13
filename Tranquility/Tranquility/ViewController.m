@@ -20,18 +20,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.tableView.tableHeaderView = ({
-//        UIView *view = [[UIView alloc] init];
-//        view.bounds = CGRectMake(0, 0, 0, 20.0f);
-//        view.backgroundColor = [UIColor grayColor];
-//        
-//        view;
-//    });
+    self.tableView.tableHeaderView = ({
+        UIView *view = [[UIView alloc] init];
+        view.bounds = CGRectMake(0, 0, 0, 20.0f);
+        view.backgroundColor = [UIColor grayColor];
     
-    [self.tableView addParallaxWithView:self.contentView andHeight:568];
+        view;
+    });
+    
+    [self.tableView addParallaxWithView:self.contentView andHeight:548];
     [self.tableView.parallaxView setDelegate:self];
     
-    self.tableView.backgroundColor = [UIColor grayColor];
+    //self.tableView.backgroundColor = [UIColor grayColor];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
+    [self.tableView setContentOffset:CGPointMake(0, -548)];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -136,11 +141,14 @@
     
     if (newOffsetRatio == -1)
     {
-        [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+        // parallax in view
+        [scrollView setContentOffset:CGPointMake(0, -548) animated:YES];
+        self.navigationController.navigationBarHidden = YES;
     }
     else if (newOffsetRatio < -1 || (oldOffsetRatio < 0 && newOffsetRatio > 2))
     {
         [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        self.navigationController.navigationBarHidden = NO;
     }
 }
 
@@ -151,7 +159,7 @@
 }
 
 - (void)parallaxView:(APParallaxView *)view didChangeFrame:(CGRect)frame {
-    
+    NSLog(@"%f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
 }
 
 
