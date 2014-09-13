@@ -58,7 +58,7 @@
             <connections>
                 <outlet property="circleView" destination="ceJ-Uk-Ehb" id="iZa-8G-ebE"/>
             </connections>
-            <point key="canvasLocation" x="96" y="56"/>
+            <point key="canvasLocation" x="146" y="71"/>
         </view>
     </objects>
 </document>

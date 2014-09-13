@@ -20,14 +20,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] init];
-        view.bounds = CGRectMake(0, 0, 0, 20.0f);
-        view.backgroundColor = [UIColor grayColor];
-    
-        view;
-    });
-    
     [self.tableView addParallaxWithView:self.contentView andHeight:568];
     [self.tableView.parallaxView setDelegate:self];
     
@@ -128,6 +120,11 @@
     if (!decelerate) [self repositionScrollView:scrollView];
 }
 
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSLog(@"%f", scrollView.contentOffset.y);
+}
+
 #pragma mark - Sticky Scroll View
 
 - (void)repositionScrollView:(UIScrollView *)scrollView
@@ -139,16 +136,26 @@
     int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
     int oldOffsetRatio = (int)superHeight / (int)_oldContentY;
     
+//    if (_targetContentY >= 0.5*-568) {
+//        [self.navigationController setNavigationBarHidden:NO animated:YES];
+//        //self.navigationController.navigationBarHidden = NO;
+//    } else {
+//        [self.navigationController setNavigationBarHidden:YES animated:YES];
+//        //self.navigationController.navigationBarHidden = YES;
+//    }
+    
+    NSLog(@"%d", newOffsetRatio);
+    
     if (newOffsetRatio == -1)
     {
         // parallaxview in view
         [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
         //self.navigationController.navigationBarHidden = YES;
     }
-    else if (newOffsetRatio < -1 || (oldOffsetRatio < 0 && newOffsetRatio > 2))
+    else if ((_targetContentY < -60 && _targetContentY > 0.5*-568) || (oldOffsetRatio < 0 && newOffsetRatio > 2))
     {
         // tableview in view
-        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        [scrollView setContentOffset:CGPointMake(0, -60) animated:YES];
         //self.navigationController.navigationBarHidden = NO;
     }
 }
@@ -160,9 +167,9 @@
 }
 
 - (void)parallaxView:(APParallaxView *)view didChangeFrame:(CGRect)frame {
-    NSLog(@"%f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+    //NSLog(@"%f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
     
-    if (frame.origin.y >= 0) {
+    if (frame.origin.y >= 0.5*-568) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         //self.navigationController.navigationBarHidden = NO;
     } else {
