@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22A5DEE019C41AF30098B154 /* ParallaxView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A5DEDF19C41AF30098B154 /* ParallaxView.xib */; };
+		2276682619C4AC26009254D0 /* TRPieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276682219C4AC26009254D0 /* TRPieChart.m */; };
+		2276682719C4AC26009254D0 /* TRPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276682419C4AC26009254D0 /* TRPieChartView.m */; };
+		2276682819C4AC26009254D0 /* TRPieChartView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2276682519C4AC26009254D0 /* TRPieChartView.xib */; };
+		2276682B19C4AD5F009254D0 /* SummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2276682A19C4AD5F009254D0 /* SummaryView.m */; };
+		22A5DEE019C41AF30098B154 /* SummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A5DEDF19C41AF30098B154 /* SummaryView.xib */; };
 		8B83100A19C3EBCB007B2767 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83100919C3EBCB007B2767 /* main.m */; };
 		8B83100D19C3EBCB007B2767 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83100C19C3EBCB007B2767 /* AppDelegate.m */; };
 		8B83101019C3EBCB007B2767 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B83100F19C3EBCB007B2767 /* ViewController.m */; };
@@ -31,7 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		22A5DEDF19C41AF30098B154 /* ParallaxView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ParallaxView.xib; path = ../../../../Documents/ParallaxView.xib; sourceTree = "<group>"; };
+		2276682119C4AC26009254D0 /* TRPieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRPieChart.h; sourceTree = "<group>"; };
+		2276682219C4AC26009254D0 /* TRPieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRPieChart.m; sourceTree = "<group>"; };
+		2276682319C4AC26009254D0 /* TRPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRPieChartView.h; sourceTree = "<group>"; };
+		2276682419C4AC26009254D0 /* TRPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRPieChartView.m; sourceTree = "<group>"; };
+		2276682519C4AC26009254D0 /* TRPieChartView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRPieChartView.xib; sourceTree = "<group>"; };
+		2276682919C4AD5F009254D0 /* SummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryView.h; sourceTree = "<group>"; };
+		2276682A19C4AD5F009254D0 /* SummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryView.m; sourceTree = "<group>"; };
+		22A5DEDF19C41AF30098B154 /* SummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SummaryView.xib; path = ../../../../Documents/SummaryView.xib; sourceTree = "<group>"; };
 		8B83100419C3EBCB007B2767 /* Tranquility.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tranquility.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B83100819C3EBCB007B2767 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B83100919C3EBCB007B2767 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +82,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2276682019C4AC1D009254D0 /* TRPieChart */ = {
+			isa = PBXGroup;
+			children = (
+				2276682119C4AC26009254D0 /* TRPieChart.h */,
+				2276682219C4AC26009254D0 /* TRPieChart.m */,
+				2276682319C4AC26009254D0 /* TRPieChartView.h */,
+				2276682419C4AC26009254D0 /* TRPieChartView.m */,
+				2276682519C4AC26009254D0 /* TRPieChartView.xib */,
+			);
+			name = TRPieChart;
+			sourceTree = "<group>";
+		};
 		8B830FFB19C3EBCB007B2767 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +115,7 @@
 		8B83100619C3EBCB007B2767 /* Tranquility */ = {
 			isa = PBXGroup;
 			children = (
+				2276682019C4AC1D009254D0 /* TRPieChart */,
 				8B83103319C3FC59007B2767 /* APParallaxHeader */,
 				8B83100B19C3EBCB007B2767 /* AppDelegate.h */,
 				8B83100C19C3EBCB007B2767 /* AppDelegate.m */,
@@ -102,10 +126,12 @@
 				8B83103019C3FA12007B2767 /* DetailsViewController.h */,
 				8B83103119C3FA12007B2767 /* DetailsViewController.m */,
 				8B83101119C3EBCB007B2767 /* Main.storyboard */,
-				22A5DEDF19C41AF30098B154 /* ParallaxView.xib */,
+				22A5DEDF19C41AF30098B154 /* SummaryView.xib */,
 				8B83101419C3EBCB007B2767 /* Images.xcassets */,
 				8B83101619C3EBCB007B2767 /* LaunchScreen.xib */,
 				8B83100719C3EBCB007B2767 /* Supporting Files */,
+				2276682919C4AD5F009254D0 /* SummaryView.h */,
+				2276682A19C4AD5F009254D0 /* SummaryView.m */,
 			);
 			path = Tranquility;
 			sourceTree = "<group>";
@@ -225,8 +251,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22A5DEE019C41AF30098B154 /* ParallaxView.xib in Resources */,
+				22A5DEE019C41AF30098B154 /* SummaryView.xib in Resources */,
 				8B83101319C3EBCB007B2767 /* Main.storyboard in Resources */,
+				2276682819C4AC26009254D0 /* TRPieChartView.xib in Resources */,
 				8B83101819C3EBCB007B2767 /* LaunchScreen.xib in Resources */,
 				8B83101519C3EBCB007B2767 /* Images.xcassets in Resources */,
 			);
@@ -250,8 +277,11 @@
 				8B83103219C3FA12007B2767 /* DetailsViewController.m in Sources */,
 				8B83102F19C3F9E6007B2767 /* FoodTableViewCell.m in Sources */,
 				8B83100D19C3EBCB007B2767 /* AppDelegate.m in Sources */,
+				2276682719C4AC26009254D0 /* TRPieChartView.m in Sources */,
 				8B83103619C3FC6B007B2767 /* UIScrollView+APParallaxHeader.m in Sources */,
 				8B83100A19C3EBCB007B2767 /* main.m in Sources */,
+				2276682B19C4AD5F009254D0 /* SummaryView.m in Sources */,
+				2276682619C4AC26009254D0 /* TRPieChart.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

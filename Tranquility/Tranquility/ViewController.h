@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "UIScrollView+APParallaxHeader.h"
+#import "SummaryView.h"
+#import "TRPieChart.h"
 #import "FoodTableViewCell.h"
 #import "DetailsViewController.h"
 
 @interface ViewController : UITableViewController <APParallaxViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) UIView *contentView;
+@property (strong, nonatomic) SummaryView *contentView;
 
 
 @end
