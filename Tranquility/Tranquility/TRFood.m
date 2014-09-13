@@ -1,15 +1,13 @@
 //
-//  DetailsViewController.m
+//  TRFood.m
 //  Tranquility
 //
 //  Created by Isaiah Turner on 9/13/14.
 //  Copyright (c) 2014 Isaiah Turner. All rights reserved.
 //
 
-#import "DetailsViewController.h"
+#import "TRFood.h"
 
-@implementation DetailsViewController
-- (void)viewDidLoad {
-}
+@implementation TRFood
 
 @end

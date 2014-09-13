@@ -10,6 +10,7 @@
 #import "UIScrollView+APParallaxHeader.h"
 #import "SummaryView.h"
 #import "TRPieChart.h"
+#import "TRAPIClient.h"
 #import "FoodTableViewCell.h"
 #import "DetailsViewController.h"
 

@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.h
+//  TRFood.h
 //  Tranquility
 //
 //  Created by Isaiah Turner on 9/13/14.
@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-@interface DetailsViewController  : UIViewController
+@interface TRFood : NSObject
 
 @end

@@ -29,6 +29,12 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
     [self.tableView setContentOffset:CGPointMake(0, -568)];
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
+    [TRAPIClient loginWith:@"" block:^(BOOL success) {
+        if (success) [self dismissViewControllerAnimated:YES completion:nil];
+        else
+            NSLog(@"Login error.");
+    }];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
