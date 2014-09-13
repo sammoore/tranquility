@@ -11,9 +11,9 @@
 #import "FoodTableViewCell.h"
 #import "DetailsViewController.h"
 
-@interface ViewController : UIViewController <APParallaxViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UITableViewController <APParallaxViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIView *contentView;
+@property (strong, nonatomic) UIView *contentView;
 
 
 @end
