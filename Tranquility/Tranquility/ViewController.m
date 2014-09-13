@@ -10,9 +10,10 @@
 
 #define kTableViewCellHeight 62;
 
-@implementation ViewController
-
-
+@implementation ViewController {
+    CGFloat _targetContentY;
+    CGFloat _oldContentY;
+}
 
 #pragma mark - UIViewController
 
@@ -67,14 +68,55 @@
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
+                     withVelocity:(CGPoint)velocity
+              targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    _targetContentY = targetContentOffset->y;
+}
+
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
-    [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+    [self repositionScrollView:scrollView];
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (!decelerate) [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+    if (!decelerate) [self repositionScrollView:scrollView];
+}
+
+#pragma mark - Sticky Scroll View
+
+- (void)repositionScrollView:(UIScrollView *)scrollView
+{
+    CGFloat superHeight = [[scrollView superview] bounds].size.height;
+    //NSLog(@"%f", superHeight);
+    CGFloat scrollViewOffset = _targetContentY;;
+    
+    _oldContentY = [scrollView contentOffset].y;
+    
+    int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
+    int oldOffsetRatio = (int)superHeight / (int)_oldContentY;
+    
+    NSLog(@"%f %f %d %d", scrollViewOffset, _oldContentY, oldOffsetRatio, newOffsetRatio);
+    
+    //NSLog(@"%d", offsetRatio);
+    
+    if (newOffsetRatio == -1)
+    {
+        [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+    }
+    else if (newOffsetRatio < -1 || (oldOffsetRatio < 0 && newOffsetRatio > 2))
+    {
+        [scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    }
+//    else if ()
+//    {
+//        [scrollView setContentOffset:CG]
+//    }
+    
+    
+    
 }
 
 #pragma mark - APParallaxViewDelegate
