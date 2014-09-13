@@ -29,12 +29,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
     [self.tableView setContentOffset:CGPointMake(0, -568)];
-    [self performSegueWithIdentifier:@"showLogin" sender:self];
-    [TRAPIClient loginWith:@"" block:^(BOOL success) {
-        if (success) [self dismissViewControllerAnimated:YES completion:nil];
-        else
-            NSLog(@"Login error.");
+    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
+        if (!success)
+            [self performSegueWithIdentifier:@"showLogin" sender:self];
+        else {
+            NSLog(@"Use the data");
+        }
     }];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

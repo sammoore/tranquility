@@ -8,6 +8,10 @@
 
 #import "LoginViewController.h"
 #import "TRAPIClient.h"
+#import <AddressBook/AddressBook.h>
+#import <AddressBookUI/AddressBookUI.h>
+
+
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
 
@@ -32,11 +36,41 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)logIn:(id)sender {
-    [TRAPIClient loginWith:self.phoneField.text block:^(BOOL success) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+    self.phoneField.enabled = FALSE;
+    UIButton *button = (UIButton *)sender;
+    button.enabled = FALSE;
+    [button setTitle:@"Visit the link we sent" forState:UIControlStateNormal];
+    [TRAPIClient loginWith:self.phoneField.text block:^(BOOL success, NSString *phone) {
+
+        ABAddressBookRef iPhoneAddressBook = ABAddressBookCreate();
+        ABRecordRef newPerson = ABPersonCreate();
+        
+        ABRecordSetValue(newPerson, kABPersonFirstNameProperty, CFSTR("Tranquility"), nil);
+        
+        ABMutableMultiValueRef multiPhone = ABMultiValueCreateMutable(kABMultiStringPropertyType);
+        
+        ABMultiValueAddValueAndLabel(multiPhone, (__bridge CFTypeRef)(phone), kABHomeLabel, NULL);
+        ABRecordSetValue(newPerson, kABPersonPhoneProperty, multiPhone,nil);
+        CFRelease(multiPhone);
+        
+        UIImage *im = [UIImage imageNamed:@"logo_mobile_48.png"];
+        NSData *dataRef = UIImagePNGRepresentation(im);
+        ABPersonSetImageData(newPerson, (__bridge CFDataRef)dataRef, nil);
+        
+        
+        ABAddressBookAddRecord(iPhoneAddressBook, newPerson, nil);
+        
+        CFRelease(newPerson);
+        CFRelease(iPhoneAddressBook);
     }];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    NSString *accessKey = [TRAPIClient accessKey];
+    if (accessKey) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
 - (void)keyboardWasShown:(NSNotification *)notification {
     NSDictionary* info = [notification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
