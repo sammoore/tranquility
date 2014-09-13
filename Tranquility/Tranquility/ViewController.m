@@ -12,6 +12,8 @@
 
 @implementation ViewController
 
+
+
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
@@ -56,7 +58,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return 20;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -65,18 +67,24 @@
 
 #pragma mark - UIScrollViewDelegate
 
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
+}
+
 #pragma mark - APParallaxViewDelegate
 
 - (void)parallaxView:(APParallaxView *)view willChangeFrame:(CGRect)frame {
-    NSLog(@"parallaxView:willChangeFrame:");
-    NSLog(@"-- paraframe: %0.f %0.f %0.f %0.f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-    NSLog(@"-- contframe: %0.f %0.f %0.f %0.f", self.contentView.frame.origin.x, self.contentView.frame.origin.y, frame.size.width, frame.size.height);
+    
 }
 
 - (void)parallaxView:(APParallaxView *)view didChangeFrame:(CGRect)frame {
-    NSLog(@"parallaxView:didChangeFrame:");
-    NSLog(@"-- paraframe: %0.f %0.f %0.f %0.f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
-    NSLog(@"-- contframe: %0.f %0.f %0.f %0.f", self.contentView.frame.origin.x, self.contentView.frame.origin.y, self.contentView.frame.size.width, self.contentView.frame.size.height);
+    
 }
 
 
