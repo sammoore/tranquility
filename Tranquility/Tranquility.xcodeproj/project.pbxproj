@@ -199,6 +199,8 @@
 		229EC4C619C50339003556E9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B83103319C3FC59007B2767 /* APParallaxHeader */,
+				8BCB5F7A19C4D85F00D4CBCA /* AFNetworking */,
 				8BC6E74D19C4F67200BF9F7A /* AddressBookUI.framework */,
 				8BB2CF2019C4F47200F24F59 /* AddressBook.framework */,
 				229EC4C419C502EB003556E9 /* MessageUI.framework */,
@@ -236,10 +238,8 @@
 		8B83100619C3EBCB007B2767 /* Tranquility */ = {
 			isa = PBXGroup;
 			children = (
-				8BCB5F7A19C4D85F00D4CBCA /* AFNetworking */,
 				8BCB5F9719C4D88700D4CBCA /* TRAPIClient */,
 				2276682019C4AC1D009254D0 /* TRPieChart */,
-				8B83103319C3FC59007B2767 /* APParallaxHeader */,
 				8B83100B19C3EBCB007B2767 /* AppDelegate.h */,
 				8B83100C19C3EBCB007B2767 /* AppDelegate.m */,
 				8B83100E19C3EBCB007B2767 /* ViewController.h */,

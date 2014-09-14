@@ -24,23 +24,28 @@ const int kParallaxHeight = 568;
     [self.tableView addParallaxWithView:self.contentView andHeight:kParallaxHeight];
     [self.tableView.parallaxView setDelegate:self];
     
+    [self.navigationItem setTitle:@"Today"];
+    
     //self.tableView.backgroundColor = [UIColor grayColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
-    [self.tableView setContentOffset:CGPointMake(0, -kParallaxHeight)];
+    [self.tableView setContentOffset:CGPointMake(0, -44-kParallaxHeight)];
     [self.tableView.parallaxView setBackgroundColor:[UIColor blackColor]];
     
     NSLog(@"%@", [TRAPIClient accessKey]);
     [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
         if (!success) {
-            //[self performSegueWithIdentifier:@"showLogin" sender:self];
+            self performSegueWithIdentifier:@"showLogin" sender:self];
         } else {
             NSLog(@"Use the data");
         }
     }];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -123,7 +128,7 @@ const int kParallaxHeight = 568;
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLog(@"%f", scrollView.contentOffset.y);
+    //NSLog(@"%f", scrollView.contentOffset.y);
     _oldContentY = scrollView.contentOffset.y;
 }
 
@@ -131,8 +136,8 @@ const int kParallaxHeight = 568;
 
 - (void)repositionScrollView:(UIScrollView *)scrollView
 {
-    CGFloat superHeight = [[scrollView superview] bounds].size.height;
-    CGFloat scrollViewOffset = _targetContentY;;
+    //CGFloat superHeight = [[scrollView superview] bounds].size.height;
+    //CGFloat scrollViewOffset = _targetContentY;;
     //_oldContentY = [scrollView contentOffset].y;
     
     //int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
@@ -151,7 +156,7 @@ const int kParallaxHeight = 568;
         // tableview in view
         [scrollView setContentOffset:CGPointMake(0, -kParallaxHeight) animated:YES];
     }
-    else if (_targetContentY > 0.5*-kParallaxHeight && _targetContentY < 0.5*kParallaxHeight)
+    else if (_targetContentY > 0.5*-kParallaxHeight && _targetContentY < 0)
     {
         [scrollView setContentOffset:CGPointMake(0, -60) animated:YES];
     }
