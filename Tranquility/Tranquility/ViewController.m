@@ -37,10 +37,10 @@ const int kParallaxHeight = 568;
 - (void)viewDidAppear:(BOOL)animated
 {
     if (!self.loggedIn) {
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
         self.loggedIn = TRUE;
         return;
-    }
-    if (!self.shown) {
+    } else if (!self.shown) {
         self.shown = TRUE;
     [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *meals) {
         self.chart = chart;
@@ -60,14 +60,14 @@ const int kParallaxHeight = 568;
         NSLog(@"%@", [TRAPIClient accessKey]);
         [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
             if (!success) {
-                [self performSegueWithIdentifier:@"showLogin" sender:self];
+                NSLog(@"Bad");
             } else {
                 NSLog(@"Use the data");
             }
         }];
     }];
     }
-}
+    }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqual:@"showInfo"]) {
