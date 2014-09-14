@@ -14,5 +14,6 @@
 @property (nonatomic) int fiber;
 @property (nonatomic) int fat;
 @property (nonatomic) int protein;
+-(id)initWithCarbs:(int)carbs sugar:(int)sugar fiber:(int)fiber fat:(int)fat protein:(int)protein;
 
 @end

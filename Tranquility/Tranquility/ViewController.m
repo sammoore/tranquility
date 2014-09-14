@@ -29,7 +29,14 @@
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
     [self.tableView setContentOffset:CGPointMake(0, -568)];
-    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
+    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *meals) {
+        self.chart = chart;
+        self.meals = meals;
+        [self.pieChart setValue:self.chart.fat / 100 forFoodGroup:FRUIT];
+        [self.pieChart setValue:self.chart.protein / 100 forFoodGroup:PROTEIN];
+        [self.pieChart setValue:self.chart.fiber / 100 forFoodGroup:VEGITABLE];
+        [self.tableView reloadData];
+        
         if (!success)
             [self performSegueWithIdentifier:@"showLogin" sender:self];
         else {
@@ -54,11 +61,7 @@
 - (UIView *)contentView {
     if (_contentView == nil) {
         _contentView = [[[NSBundle mainBundle] loadNibNamed:@"SummaryView" owner:self options:nil] objectAtIndex:0];
-        TRPieChart *chart = [[TRPieChart alloc] initWithView:_contentView.circleView];
-#warning Get the data here.
-        [chart setValue:0.2 forFoodGroup:FRUIT];
-        [chart setValue:0.7 forFoodGroup:PROTEIN];
-        [chart setValue:0.5 forFoodGroup:VEGITABLE];
+        self.pieChart = [[TRPieChart alloc] initWithView:_contentView.circleView];
         //UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:_contentView.circleView action:@selector(singleTapGestureRecognizer:)];
         //[_contentView.circleView addGestureRecognizer:singleTap];
     }
@@ -86,14 +89,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)
-        return 20;
+        return [self.meals count];
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     FoodTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.foodTitle.text = @"Hamburger";
-    cell.foodCalories.text = [NSString stringWithFormat:@"%d",40];
+    TRFood *meal = [self.meals objectAtIndex:[indexPath row]];
+    cell.foodTitle.text = meal.foodName;
+    cell.foodCalories.text = [NSString stringWithFormat:@"%d",meal.calories];
     
     return cell;
 }

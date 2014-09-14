@@ -17,6 +17,10 @@
 @interface ViewController : UITableViewController <APParallaxViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) SummaryView *contentView;
+@property (strong, nonatomic) TRChart *chart;
+@property (strong, nonatomic) NSArray *meals;
+@property (strong, nonatomic) TRPieChart *pieChart;
+
 
 
 @end

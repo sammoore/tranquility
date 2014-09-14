@@ -23,15 +23,20 @@
 }
 + (void)getDataWithBlock:(void(^)(BOOL success, TRChart *chart, NSArray *foods))block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *accessKey = [[NSUserDefaults standardUserDefaults] stringForKey:@"Person"];
+    NSString *accessKey = [[NSUserDefaults standardUserDefaults] stringForKey:@"AccessKey"];
     if (!accessKey) {
         block(FALSE, nil, nil);
         return;
     }
-    [manager GET:[NSString stringWithFormat:@"%s/data?id=accessKey",API_ENDPOINT] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[NSUserDefaults standardUserDefaults] setValue:accessKey forKey:@"AccessKey"];
+    [manager GET:[NSString stringWithFormat:@"%s/data?id=",API_ENDPOINT] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
-        block(TRUE, [[TRChart alloc] init], [[NSArray alloc] init]);
+        NSMutableArray *meals = [[NSMutableArray alloc] init];
+        for (NSDictionary *meal in responseObject[@"meals"]) {
+            TRFood *food = [[TRFood alloc] initWithCarbs:meal[@"nutrition"][@"carbs"] sugar:meal[@"nutrition"][@"carbs"] fiber:meal[@"nutrition"][@"fiber"] fat:meal[@"nutrition"][@"fat"] protein:meal[@"nutrition"][@"protein"] name:meal[@"food"][@"name"] icon:[UIImage imageNamed:@"icon"] calories:meal[@"food"][@"calories"] objectID:meal[@"food"][@"id"]];
+            [meals addObject:food];
+        }
+        TRChart *chart = [[TRChart alloc] initWithCarbs:responseObject[@"chart"][@"carbs"] sugar:responseObject[@"chart"][@"sugar"] fiber:responseObject[@"chart"][@"fiber"] fat:responseObject[@"chart"][@"fat"] protein:responseObject[@"chart"][@"protein"]];
+        block(TRUE, chart, meals);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);
