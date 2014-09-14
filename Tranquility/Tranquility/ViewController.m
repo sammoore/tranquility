@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 #define kTableViewCellHeight 62;
+const int kParallaxHeight = 568;
 
 @implementation ViewController {
     CGFloat _targetContentY;
@@ -20,14 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView addParallaxWithView:self.contentView andHeight:568];
+    [self.tableView addParallaxWithView:self.contentView andHeight:kParallaxHeight];
     [self.tableView.parallaxView setDelegate:self];
+    
+    [self.navigationItem setTitle:@"Today"];
     
     //self.tableView.backgroundColor = [UIColor grayColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
+<<<<<<< HEAD
     [self.tableView setContentOffset:CGPointMake(0, -568)];
     [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *meals) {
         self.chart = chart;
@@ -40,10 +44,23 @@
         if (!success)
             [self performSegueWithIdentifier:@"showLogin" sender:self];
         else {
+=======
+    [self.tableView setContentOffset:CGPointMake(0, -44-kParallaxHeight)];
+    [self.tableView.parallaxView setBackgroundColor:[UIColor blackColor]];
+    
+    NSLog(@"%@", [TRAPIClient accessKey]);
+    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
+        if (!success) {
+            self performSegueWithIdentifier:@"showLogin" sender:self];
+        } else {
+>>>>>>> FETCH_HEAD
             NSLog(@"Use the data");
         }
     }];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -102,19 +119,6 @@
     return cell;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
-//{
-//    if (sectionIndex == 0) {
-//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(tableView.frame.origin.x, tableView.frame.origin.y, tableView.frame.size.width, 20)];
-//        view.backgroundColor = [UIColor grayColor];
-//        
-//        //[view addSubview:label];
-//        
-//        return view;
-//    }
-//    return nil;
-//}
-
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView
@@ -136,39 +140,37 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+    //NSLog(@"%f", scrollView.contentOffset.y);
+    _oldContentY = scrollView.contentOffset.y;
 }
 
 #pragma mark - Sticky Scroll View
 
 - (void)repositionScrollView:(UIScrollView *)scrollView
 {
-    CGFloat superHeight = [[scrollView superview] bounds].size.height;
-    CGFloat scrollViewOffset = _targetContentY;;
-    _oldContentY = [scrollView contentOffset].y;
+    //CGFloat superHeight = [[scrollView superview] bounds].size.height;
+    //CGFloat scrollViewOffset = _targetContentY;;
+    //_oldContentY = [scrollView contentOffset].y;
     
-    int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
-    int oldOffsetRatio = (int)superHeight / (int)_oldContentY;
+    //int newOffsetRatio = (int)superHeight / (int)scrollViewOffset;
+    //int oldOffsetRatio = (int)superHeight / (int)_oldContentY;
+
+    //NSLog(@"targetContentY %f, 0.3k %f", _targetContentY, 0.3*-kParallaxHeight);
+    //NSLog(@"oldContentY %f", _oldContentY);
     
-//    if (_targetContentY >= 0.5*-568) {
-//        [self.navigationController setNavigationBarHidden:NO animated:YES];
-//        //self.navigationController.navigationBarHidden = NO;
-//    } else {
-//        [self.navigationController setNavigationBarHidden:YES animated:YES];
-//        //self.navigationController.navigationBarHidden = YES;
-//    }
-    
-    
-    if (newOffsetRatio == -1)
+    if (_targetContentY <= -kParallaxHeight) // if it is pulled down, bring it back up. // < -568 means pulled even farther down
     {
         // parallaxview in view
-        [scrollView setContentOffset:CGPointMake(0, -568) animated:YES];
-        //self.navigationController.navigationBarHidden = YES;
+        [scrollView setContentOffset:CGPointMake(0, -kParallaxHeight) animated:YES];
     }
-    else if ((_targetContentY < -60 && _targetContentY > 0.5*-568) || (oldOffsetRatio < 0 && newOffsetRatio > 2))
+    else if (_targetContentY > -kParallaxHeight && _targetContentY <= 0.5*-kParallaxHeight) // if it is pulled up, we want the target to be (1/2)(-568) so the dest. needs to be
     {
         // tableview in view
+        [scrollView setContentOffset:CGPointMake(0, -kParallaxHeight) animated:YES];
+    }
+    else if (_targetContentY > 0.5*-kParallaxHeight && _targetContentY < 0)
+    {
         [scrollView setContentOffset:CGPointMake(0, -60) animated:YES];
-        //self.navigationController.navigationBarHidden = NO;
     }
 }
 
@@ -179,14 +181,11 @@
 }
 
 - (void)parallaxView:(APParallaxView *)view didChangeFrame:(CGRect)frame {
-    //NSLog(@"%f %f %f %f", frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
     
-    if (frame.origin.y >= 0.5*-568) {
+    if (frame.origin.y >= 0.5*-kParallaxHeight) {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
-        //self.navigationController.navigationBarHidden = NO;
     } else {
         [self.navigationController setNavigationBarHidden:YES animated:YES];
-        //self.navigationController.navigationBarHidden = YES;
     }
 }
 
