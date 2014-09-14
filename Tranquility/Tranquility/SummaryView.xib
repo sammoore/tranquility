@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDb-yi-ycp">
-                    <rect key="frame" x="0.0" y="18" width="320" height="550"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="550"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Updated June 2nd, 2014 at 12:23 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KxJ-Om-mUS">
                             <rect key="frame" x="15" y="521" width="290" height="21"/>
@@ -20,10 +20,6 @@
                             <color key="textColor" white="0.59281015039999996" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceJ-Uk-Ehb">
-                            <rect key="frame" x="15" y="84" width="290" height="294"/>
-                            <color key="backgroundColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTg-nw-QYC">
                             <rect key="frame" x="15" y="30" width="46" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -31,8 +27,11 @@
                                 <color key="titleColor" red="0.2156862745" green="0.87058823529999996" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="decrease:" destination="iN0-l3-epB" eventType="touchUpInside" id="B8u-FZ-2lx"/>
+                            </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwj-zd-sam">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwj-zd-sam">
                             <rect key="frame" x="81" y="30" width="158" height="46"/>
                             <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="29"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,7 +44,14 @@
                                 <color key="titleColor" red="0.2156862745" green="0.87058823529999996" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="increase:" destination="iN0-l3-epB" eventType="touchUpInside" id="MFb-Lp-q11"/>
+                            </connections>
                         </button>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ceJ-Uk-Ehb">
+                            <rect key="frame" x="15" y="128" width="290" height="294"/>
+                            <color key="backgroundColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -57,6 +63,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="circleView" destination="ceJ-Uk-Ehb" id="iZa-8G-ebE"/>
+                <outlet property="dateLabel" destination="pwj-zd-sam" id="rsK-k9-qlJ"/>
             </connections>
             <point key="canvasLocation" x="146" y="71"/>
         </view>

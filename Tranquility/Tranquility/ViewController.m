@@ -54,7 +54,6 @@
 - (UIView *)contentView {
     if (_contentView == nil) {
         _contentView = [[[NSBundle mainBundle] loadNibNamed:@"SummaryView" owner:self options:nil] objectAtIndex:0];
-        
         TRPieChart *chart = [[TRPieChart alloc] initWithView:_contentView.circleView];
         [chart setValue:0.5 forFoodGroup:FRUIT];
         //UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:_contentView.circleView action:@selector(singleTapGestureRecognizer:)];

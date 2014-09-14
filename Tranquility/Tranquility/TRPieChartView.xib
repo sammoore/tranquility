@@ -11,31 +11,31 @@
             <rect key="frame" x="0.0" y="0.0" width="322" height="307"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Whole" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-P6-2hV">
+                <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Whole" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-P6-2hV">
                     <rect key="frame" x="4" y="6" width="282" height="281"/>
                 </imageView>
-                <imageView contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grains" translatesAutoresizingMaskIntoConstraints="NO" id="ugM-qT-gBL">
+                <imageView clipsSubviews="YES" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grains" translatesAutoresizingMaskIntoConstraints="NO" id="ugM-qT-gBL">
                     <rect key="frame" x="4" y="7" width="134" height="177"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="134" id="Pef-8p-042"/>
                         <constraint firstAttribute="height" constant="177" id="dqt-XI-cEH"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dairy" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-4P-4VS">
+                <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dairy" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-4P-4VS">
                     <rect key="frame" x="136" y="60" width="145" height="51"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="145" id="Ndw-g7-Qo0"/>
                         <constraint firstAttribute="height" constant="51" id="R3y-xV-4MU"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vegitables" translatesAutoresizingMaskIntoConstraints="NO" id="h0c-Zn-Z6c">
+                <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vegitables" translatesAutoresizingMaskIntoConstraints="NO" id="h0c-Zn-Z6c">
                     <rect key="frame" x="9" y="182" width="273" height="106"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="106" id="C58-bQ-kkR"/>
                         <constraint firstAttribute="width" constant="273" id="PkQ-Xn-BFp"/>
                     </constraints>
                 </imageView>
-                <imageView contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Protein" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-7U-VIi">
+                <imageView clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Protein" translatesAutoresizingMaskIntoConstraints="NO" id="lhG-7U-VIi">
                     <rect key="frame" x="136" y="6" width="121" height="56"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -43,7 +43,7 @@
                         <constraint firstAttribute="width" constant="121" id="jzn-aH-4Un"/>
                     </constraints>
                 </imageView>
-                <imageView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fruits" translatesAutoresizingMaskIntoConstraints="NO" id="bQw-J4-pCI">
+                <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fruits" translatesAutoresizingMaskIntoConstraints="NO" id="bQw-J4-pCI">
                     <rect key="frame" x="136" y="109" width="150" height="74"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="74" id="jDk-Qw-M88"/>
