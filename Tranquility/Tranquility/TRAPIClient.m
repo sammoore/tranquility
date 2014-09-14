@@ -10,7 +10,20 @@
 #define API_ENDPOINT "http://tranquility-penn.herokuapp.com"
 
 @implementation TRAPIClient
-
++ (NSDictionary *)icons {
+    
+    return @{@"cheeseburger": @"cheeseburger",
+             @"chicken": @"chicken", @"cupcake": @"cupcake",
+             @"egg": @"egg",
+             @"fries": @"fries",
+             @"pizza": @"pizza",
+             @"sushi": @"sushi",
+             @"taco": @"taco",
+             @"steak": @"steak",
+             @"soda": @"soda",
+             @"fish": @"fish"
+             };
+}
 + (void)loginWith:(NSString *)phone block:(void(^)(BOOL success, NSString *phone))block {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%s/login?phone=%@",API_ENDPOINT, phone] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -28,16 +41,16 @@
         block(FALSE, nil, nil);
         return;
     }
-    [manager GET:[NSString stringWithFormat:@"%s/data?id=",API_ENDPOINT] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:[NSString stringWithFormat:@"%s/data?id=%@",API_ENDPOINT, accessKey] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
         NSMutableArray *meals = [[NSMutableArray alloc] init];
         for (NSDictionary *meal in responseObject[@"meals"]) {
-            TRFood *food = [[TRFood alloc] initWithCarbs:meal[@"nutrition"][@"carbs"] sugar:meal[@"nutrition"][@"carbs"] fiber:meal[@"nutrition"][@"fiber"] fat:meal[@"nutrition"][@"fat"] protein:meal[@"nutrition"][@"protein"] name:meal[@"food"][@"name"] icon:[UIImage imageNamed:@"icon"] calories:meal[@"food"][@"calories"] objectID:meal[@"food"][@"id"]];
+            TRFood *food = [[TRFood alloc] initWithCarbs:meal[@"nutrition"][@"carbs"] sugar:meal[@"nutrition"][@"carbs"] fiber:meal[@"nutrition"][@"fiber"] fat:meal[@"nutrition"][@"fat"] protein:meal[@"nutrition"][@"protein"] name:meal[@"food"][@"name"] icon:[UIImage imageNamed:[UIImage imageNamed:[[self icons] objectForKey:meal[@"food"][@"name"]]]] calories:meal[@"food"][@"calories"] objectID:meal[@"food"][@"id"]];
             [meals addObject:food];
         }
         TRChart *chart = [[TRChart alloc] initWithCarbs:responseObject[@"chart"][@"carbs"] sugar:responseObject[@"chart"][@"sugar"] fiber:responseObject[@"chart"][@"fiber"] fat:responseObject[@"chart"][@"fat"] protein:responseObject[@"chart"][@"protein"]];
         block(TRUE, chart, meals);
-        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"AccessKey"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);
     }];

@@ -20,6 +20,7 @@
 		229EC4C319C502E6003556E9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4C219C502E6003556E9 /* CFNetwork.framework */; };
 		229EC4C519C502EB003556E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229EC4C419C502EB003556E9 /* MessageUI.framework */; };
 		22A5DEE019C41AF30098B154 /* SummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22A5DEDF19C41AF30098B154 /* SummaryView.xib */; };
+		8B424D2719C5B68600743415 /* NutritionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B424D2619C5B68600743415 /* NutritionInfoViewController.m */; };
 		8B4B085419C4ED2400DE5906 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B084419C4ED2400DE5906 /* Icon-60.png */; };
 		8B4B085519C4ED2400DE5906 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B084519C4ED2400DE5906 /* Icon-60@2x.png */; };
 		8B4B085619C4ED2400DE5906 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B4B084619C4ED2400DE5906 /* Icon-72.png */; };
@@ -90,6 +91,8 @@
 		229EC4C219C502E6003556E9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		229EC4C419C502EB003556E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		22A5DEDF19C41AF30098B154 /* SummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SummaryView.xib; sourceTree = "<group>"; };
+		8B424D2519C5B68600743415 /* NutritionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NutritionInfoViewController.h; sourceTree = "<group>"; };
+		8B424D2619C5B68600743415 /* NutritionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NutritionInfoViewController.m; sourceTree = "<group>"; };
 		8B4B084419C4ED2400DE5906 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
 		8B4B084519C4ED2400DE5906 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		8B4B084619C4ED2400DE5906 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				8B83100719C3EBCB007B2767 /* Supporting Files */,
 				2276682919C4AD5F009254D0 /* SummaryView.h */,
 				2276682A19C4AD5F009254D0 /* SummaryView.m */,
+				8B424D2519C5B68600743415 /* NutritionInfoViewController.h */,
+				8B424D2619C5B68600743415 /* NutritionInfoViewController.m */,
 			);
 			path = Tranquility;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 			files = (
 				8BCB5F9219C4D85F00D4CBCA /* AFSecurityPolicy.m in Sources */,
 				8B83101019C3EBCB007B2767 /* ViewController.m in Sources */,
+				8B424D2719C5B68600743415 /* NutritionInfoViewController.m in Sources */,
 				8BCB5F9119C4D85F00D4CBCA /* AFNetworkReachabilityManager.m in Sources */,
 				8BB3695419C4E06F00D81D57 /* LoginViewController.m in Sources */,
 				8BCB5F9319C4D85F00D4CBCA /* AFURLConnectionOperation.m in Sources */,

@@ -10,6 +10,19 @@
 
 @implementation TRPieChartView
 - (IBAction)tap:(UITapGestureRecognizer *)sender {
+    [self flashLabels];
 }
-
+- (void)flashLabels {
+    [UIView animateWithDuration:.5 delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^(){
+        for (UILabel *label in self.labels) {
+            label.layer.opacity = 1;
+        }
+    } completion:^(BOOL info){
+        [UIView animateWithDuration:1.5 delay:1 options:UIViewAnimationOptionAllowUserInteraction animations:^(){
+            for (UILabel *label in self.labels) {
+                label.layer.opacity = 0;
+            }
+        } completion:nil];
+    }];
+}
 @end

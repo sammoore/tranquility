@@ -64,9 +64,10 @@
             image = chartView.chartDairy;
             [image setTranslatesAutoresizingMaskIntoConstraints:NO];
             left = chartView.chartDairy.frame.size.width * value;
-            [UIView animateWithDuration:0.5 animations:^(){
+            [UIView animateWithDuration:1.25 delay:0.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^(){
                 chartView.chartFruitsWidth.constant = left;
-            }];
+                [self.view layoutIfNeeded];
+            } completion:nil];
             
             NSLog(@"dairy updated to %f", value);
             break;
@@ -77,9 +78,10 @@
 
             NSLog(@"%f",value);
             right = chartView.chartFruits.frame.size.width * value;
-            [UIView animateWithDuration:0.5 animations:^(){
+            [UIView animateWithDuration:1.25 delay:0.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^(){
                 chartView.chartFruitsWidth.constant = right;
-            }];
+                [self.view layoutIfNeeded];
+            } completion:nil];
             NSLog(@"fruit updated to %d", right);
             break;
         }
@@ -88,9 +90,10 @@
             [image setTranslatesAutoresizingMaskIntoConstraints:NO];
             NSLog(@"%f",value);
             top = image.frame.size.height * value;
-            [UIView animateWithDuration:0.5 animations:^(){
+            [UIView animateWithDuration:1.25 delay:0.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^(){
                 chartView.chartGrainsHeight.constant = top;
-            }];
+                [self.view layoutIfNeeded];
+            } completion:nil];
             NSLog(@"grain updated to %f", value);
             break;
         }
@@ -98,9 +101,10 @@
             image = chartView.chartVegitables;
             [image setTranslatesAutoresizingMaskIntoConstraints:NO];
             bottom = chartView.chartVegitables.frame.size.height * value;
-            [UIView animateWithDuration:0.5 animations:^(){
+            [UIView animateWithDuration:1.25 delay:0.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^(){
                 chartView.chartVegitablesHeight.constant = bottom;
-            }];
+                [self.view layoutIfNeeded];
+            } completion:nil];
             NSLog(@"vegitable updated to %f", value);
             break;
         }
@@ -108,9 +112,10 @@
             image = chartView.chartProtein;
             [image setTranslatesAutoresizingMaskIntoConstraints:NO];
             right = chartView.chartProtein.frame.size.width * value;
-            [UIView animateWithDuration:0.5 animations:^(){
+            [UIView animateWithDuration:1.25 delay:0.5 options:(UIViewAnimationOptionCurveEaseInOut) animations:^(){
                 chartView.chartProteinWidth.constant = right;
-            }];
+                [self.view layoutIfNeeded];
+            } completion:nil];
             NSLog(@"protein updated to %f", value);
             break;
         }

@@ -113,7 +113,8 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     if ([textField.text isEqualToString: @""]) {
-        textField.text = @"+1";
+        textField.text = @"+12402588898";
+        [self textFieldDidChange:self.phoneField];
     }
 }
 - (void)keyboardWillBeHidden:(NSNotification *)notification {

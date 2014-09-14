@@ -19,7 +19,7 @@
 
 - (IBAction)increase:(id)sender {
     NSLog(@"%d %d", self.lastIndex, (int)[self.all count]);
-    if (self.lastIndex == (int)[self.all count]) return;
+    if (self.lastIndex == (int)[self.all count] - 1) return;
     self.lastIndex += 1;
     self.dateLabel.text = [self.all objectAtIndex:self.lastIndex];
 }

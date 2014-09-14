@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NutritionInfoViewController.h"
 
 #define kTableViewCellHeight 62;
 const int kParallaxHeight = 568;
@@ -31,41 +32,53 @@ const int kParallaxHeight = 568;
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
-<<<<<<< HEAD
-    [self.tableView setContentOffset:CGPointMake(0, -568)];
-    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *meals) {
-        self.chart = chart;
-        self.meals = meals;
-        [self.pieChart setValue:self.chart.fat / 100 forFoodGroup:FRUIT];
-        [self.pieChart setValue:self.chart.protein / 100 forFoodGroup:PROTEIN];
-        [self.pieChart setValue:self.chart.fiber / 100 forFoodGroup:VEGITABLE];
-        [self.tableView reloadData];
-        
-        if (!success)
-            [self performSegueWithIdentifier:@"showLogin" sender:self];
-        else {
-=======
-    [self.tableView setContentOffset:CGPointMake(0, -44-kParallaxHeight)];
-    [self.tableView.parallaxView setBackgroundColor:[UIColor blackColor]];
-    
-    NSLog(@"%@", [TRAPIClient accessKey]);
-    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
-        if (!success) {
-            self performSegueWithIdentifier:@"showLogin" sender:self];
-        } else {
->>>>>>> FETCH_HEAD
-            NSLog(@"Use the data");
-        }
-    }];
-}
+     }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    if (!self.loggedIn) {
+        self.loggedIn = TRUE;
+        return;
+    }
+    if (!self.shown) {
+        self.shown = TRUE;
+    [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *meals) {
+        self.chart = chart;
+        self.meals = meals;
+        float fat = self.chart.fat / 1000 + .5;
+        float protein = self.chart.protein / 1000 + .5;
+        float fiber = self.chart.fiber / 1000 + .5;
+        NSLog(@"FATT%d %d %d %d",fat, protein, fiber, self.chart.fiber);
+        [self.pieChart setValue:fat forFoodGroup:FRUIT];
+        [self.pieChart setValue:protein forFoodGroup:PROTEIN];
+        [self.pieChart setValue:fiber forFoodGroup:VEGITABLE];
+        [self.tableView reloadData];
+        
+        [self.tableView setContentOffset:CGPointMake(0, -44-kParallaxHeight)];
+        [self.tableView.parallaxView setBackgroundColor:[UIColor blackColor]];
+        
+        NSLog(@"%@", [TRAPIClient accessKey]);
+        [TRAPIClient getDataWithBlock:^(BOOL success, TRChart *chart, NSArray *foods) {
+            if (!success) {
+                [self performSegueWithIdentifier:@"showLogin" sender:self];
+            } else {
+                NSLog(@"Use the data");
+            }
+        }];
+    }];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DetailsViewController *vc = segue.destinationViewController;
+    if ([[segue identifier] isEqual:@"showInfo"]) {
+    NutritionInfoViewController *vc = segue.destinationViewController;
+    TRFood *food = [self.meals objectAtIndex:[[self.tableView indexPathForSelectedRow] row]];
+    vc.calories.text = [NSString stringWithFormat:@"%d%%", food.calories];
+    vc.fat.text = [NSString stringWithFormat:@"%d%%", food.fat];
+    vc.protein.text = [NSString stringWithFormat:@"%d%%", food.protein];
+    vc.sugar.text = [NSString stringWithFormat:@"%d%%", food.sugar];
     vc.title = @"Hamburger";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -173,7 +186,6 @@ const int kParallaxHeight = 568;
         [scrollView setContentOffset:CGPointMake(0, -60) animated:YES];
     }
 }
-
 #pragma mark - APParallaxViewDelegate
 
 - (void)parallaxView:(APParallaxView *)view willChangeFrame:(CGRect)frame {

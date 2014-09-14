@@ -20,8 +20,8 @@
 @property (strong, nonatomic) TRChart *chart;
 @property (strong, nonatomic) NSArray *meals;
 @property (strong, nonatomic) TRPieChart *pieChart;
-
-
+@property (nonatomic) BOOL shown;
+@property (nonatomic) BOOL loggedIn;
 
 @end
 
