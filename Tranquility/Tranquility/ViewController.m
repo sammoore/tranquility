@@ -55,7 +55,10 @@
     if (_contentView == nil) {
         _contentView = [[[NSBundle mainBundle] loadNibNamed:@"SummaryView" owner:self options:nil] objectAtIndex:0];
         TRPieChart *chart = [[TRPieChart alloc] initWithView:_contentView.circleView];
-        [chart setValue:0.5 forFoodGroup:FRUIT];
+#warning Get the data here.
+        [chart setValue:0.2 forFoodGroup:FRUIT];
+        [chart setValue:0.7 forFoodGroup:PROTEIN];
+        [chart setValue:0.5 forFoodGroup:VEGITABLE];
         //UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:_contentView.circleView action:@selector(singleTapGestureRecognizer:)];
         //[_contentView.circleView addGestureRecognizer:singleTap];
     }
@@ -129,7 +132,6 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLog(@"%f", scrollView.contentOffset.y);
 }
 
 #pragma mark - Sticky Scroll View
@@ -151,7 +153,6 @@
 //        //self.navigationController.navigationBarHidden = YES;
 //    }
     
-    NSLog(@"%d", newOffsetRatio);
     
     if (newOffsetRatio == -1)
     {

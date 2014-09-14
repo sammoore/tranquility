@@ -14,21 +14,21 @@
                 <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Whole" translatesAutoresizingMaskIntoConstraints="NO" id="lp8-P6-2hV">
                     <rect key="frame" x="4" y="6" width="282" height="281"/>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Grains" translatesAutoresizingMaskIntoConstraints="NO" id="ugM-qT-gBL">
+                <imageView clipsSubviews="YES" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Grains" translatesAutoresizingMaskIntoConstraints="NO" id="ugM-qT-gBL">
                     <rect key="frame" x="4" y="7" width="134" height="177"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="134" id="Pef-8p-042"/>
                         <constraint firstAttribute="height" constant="177" id="dqt-XI-cEH"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dairy" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-4P-4VS">
-                    <rect key="frame" x="136" y="60" width="145" height="51"/>
+                <imageView clipsSubviews="YES" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Dairy" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-4P-4VS">
+                    <rect key="frame" x="154" y="60" width="127" height="51"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="145" id="Ndw-g7-Qo0"/>
                         <constraint firstAttribute="height" constant="51" id="R3y-xV-4MU"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vegitables" translatesAutoresizingMaskIntoConstraints="NO" id="h0c-Zn-Z6c">
+                <imageView clipsSubviews="YES" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vegitables" translatesAutoresizingMaskIntoConstraints="NO" id="h0c-Zn-Z6c">
                     <rect key="frame" x="9" y="182" width="273" height="106"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="106" id="C58-bQ-kkR"/>
@@ -60,7 +60,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vegitables" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h45-eZ-AHg">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Vegitables" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h45-eZ-AHg">
                     <rect key="frame" x="43" y="210" width="206" height="31"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="206" id="6NU-Xc-np8"/>
@@ -122,7 +122,6 @@
                 <constraint firstItem="lhG-7U-VIi" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="nhi-Qj-ksT"/>
                 <constraint firstAttribute="trailing" secondItem="Zas-4P-4VS" secondAttribute="trailing" constant="41" id="nhi-fb-myn"/>
                 <constraint firstItem="h45-eZ-AHg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="43" id="rtx-fg-4Kb"/>
-                <constraint firstItem="ugM-qT-gBL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="7" id="wOI-fa-N6E"/>
                 <constraint firstItem="h0c-Zn-Z6c" firstAttribute="top" secondItem="jgS-zA-XB3" secondAttribute="bottom" constant="20" id="wQ1-vQ-FTR"/>
                 <constraint firstItem="jgS-zA-XB3" firstAttribute="top" secondItem="Zas-4P-4VS" secondAttribute="bottom" constant="20" id="xnV-Xo-wyB"/>
                 <constraint firstItem="pA9-sg-CO8" firstAttribute="top" secondItem="Z0M-fC-45Q" secondAttribute="bottom" constant="8" id="z3k-LH-KkK"/>

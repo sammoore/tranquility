@@ -25,5 +25,6 @@ typedef enum foodGroups
 
 - (id)initWithView:(UIView *)view;
 - (void)setValue:(double)value forFoodGroup:(int)foodGroup;
+- (void)flashLabels;
 
 @end
