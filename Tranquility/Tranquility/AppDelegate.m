@@ -7,19 +7,127 @@
 //
 
 #import "AppDelegate.h"
+#import <PebbleKit/PebbleKit.h>
 #import "TRAPIClient.h"
 
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+    PBWatch *_targetWatch;
+}
 
+#pragma mark - PB/Tranquility AppMessages
+
+/*
+ * - refreshDataFromSender:withChartDict:
+ *
+ * sender unused right now, you can use nil
+ * dict expects ~= @{
+ *   @"chart": @{
+ *     @"dataCategory": @(intValue),
+ *     ...,
+ *     ...
+ *   }
+ * }
+ */
+- (void)refreshDataFromSender:(id)sender withChartDict:(NSDictionary *)dict {
+    if (_targetWatch == nil || [_targetWatch isConnected] == NO) {
+        NSLog(@"Tried updating data, but no connected watch!");
+        return;
+    }
+    
+    __block NSString *message;
+    NSDictionary *chartDict = [dict objectForKey:@"chart"];
+    NSMutableDictionary *update = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *key in chartDict)
+    {
+        NSNumber *groupKey = @([self nutritionGroupStringToEnum:key]);
+        int percent = [chartDict[key] integerValue];
+        [update setValue:@(percent) forKey:groupKey];
+    }
+    
+    [_targetWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+        message = error ? [error localizedDescription] : @"Update sent!";
+    }];
+    return;
+}
+
+- (void)setTargetWatch:(PBWatch *)watch {
+    _targetWatch = watch;
+    
+    [watch appMessagesGetIsSupported:^(PBWatch *watch, BOOL isAppMessagesSupported) {
+        NSString *message;
+        
+        if (isAppMessagesSupported) {
+            // Configure out communications channel to target the Tranquility Pebble app:
+            uuid_t trPebbleUUIDbytes;
+            NSUUID *trPebbleUUID = [[NSUUID alloc] initWithUUIDString:@"0dff7ddc-e15f-473f-b89d-70b750a2842d"];
+            [trPebbleUUID getUUIDBytes:trPebbleUUIDbytes];
+            [[PBPebbleCentral defaultCentral] setAppUUID:[NSData dataWithBytes:trPebbleUUIDbytes length:16]];
+            
+            message = [NSString stringWithFormat:@"%@ connected with AppMessages support", [watch name]];
+            [self sendTestAppMessage];
+        } else {
+            message = [NSString stringWithFormat:@"%@ connected without AppMessages support", [watch name]];
+        }
+        
+        NSLog(@"%@", message);
+    }];
+}
+
+- (void)sendTestAppMessage
+{
+    // TODO: implement
+}
+
+- (NSString *)nutritionGroupToString:(NutritionGroup)enumVal
+{
+    NSArray *nutritionTypeArray = [[NSArray alloc] initWithObjects:kNutritionGroupArray];
+    return [nutritionTypeArray objectAtIndex:enumVal];
+}
+
+- (NSUInteger)nutritionGroupStringToEnum:(NSString *)strVal
+{
+    NSArray *nutritionTypeArray = [[NSArray alloc] initWithObjects:kNutritionGroupArray];
+    NSUInteger n = [nutritionTypeArray indexOfObject:strVal];
+    if(n < 1) n = Carbs;
+    
+    return n;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // PBPebbleCentral configuration
+    //[[PBPebbleCentral defaultCentral] setAppUUID:[NSData dataWithBytes:trPebbleUUIDbytes length:16]];
+    [[PBPebbleCentral defaultCentral] setDelegate:self];
+    [self setTargetWatch:[[PBPebbleCentral defaultCentral] lastConnectedWatch]];
+    NSLog(@"Last connected watch: %@", self.connectedWatch);
+    
     return YES;
 }
+
+#pragma mark - PBPebbleCentralDelegate
+
+- (void)pebbleCentral:(PBPebbleCentral *)central
+      watchDidConnect:(PBWatch *)watch
+                isNew:(BOOL)isNew
+{
+    [self setTargetWatch:watch];
+}
+
+- (void)pebbleCentral:(PBPebbleCentral *)centrald
+   watchDidDisconnect:(PBWatch *)watch
+                isNew:(BOOL)isNew
+{
+    if (_targetWatch == watch || [watch isEqual:_targetWatch]) {
+        [self setTargetWatch:nil];
+    }
+}
+
+#pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
