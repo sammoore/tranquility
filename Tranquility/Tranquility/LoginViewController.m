@@ -29,7 +29,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification
-                                               object:nil];}
+                                               object:nil];
+    [self.phoneField addTarget:self
+                  action:@selector(textFieldDidChange:)
+        forControlEvents:UIControlEventEditingChanged];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -78,12 +83,14 @@
     }
 }
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+-(BOOL)textFieldDidChange:(id)sender {
+    UITextField *textField = (UITextField *)sender;
     if ([textField.text stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [textField.text length])].length > 10) {
         self.checkImage.image = [UIImage imageNamed:@"Check"];
-        
+        self.continueButtons.enabled = TRUE;
     } else {
         self.checkImage.image = [UIImage imageNamed:@"Check Inactive"];
+        self.continueButtons.enabled = FALSE;
     }
     
     return YES;
