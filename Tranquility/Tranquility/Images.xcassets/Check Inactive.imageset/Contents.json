@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "Landscape.png"
+      "filename" : "Check Inactive.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Landscape@2x.png"
+      "filename" : "Check Inactive@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "Landscape@3x.png"
+      "filename" : "Check Inactive@3x.png"
     }
   ],
   "info" : {

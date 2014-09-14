@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic) IBOutlet UIImageView *checkImage;
+@property (strong, nonatomic) IBOutlet UIButton *continueButtons;
 
 
 @end

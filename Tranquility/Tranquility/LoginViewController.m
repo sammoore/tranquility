@@ -14,7 +14,7 @@
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *phoneField;
-
+@property (strong, nonatomic) NSString *original;
 @end
 
 @implementation LoginViewController
@@ -36,12 +36,18 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)logIn:(id)sender {
+    self.activityIndicator.hidden = NO;
+    self.checkImage.hidden = YES;
     self.phoneField.enabled = FALSE;
-    UIButton *button = (UIButton *)sender;
-    button.enabled = FALSE;
-    [button setTitle:@"Visit the link we sent" forState:UIControlStateNormal];
+    self.continueButtons.enabled = FALSE;
+    [self.continueButtons setTitle:@"Checking..." forState:UIControlStateNormal];
+    [NSTimer scheduledTimerWithTimeInterval:2.0f
+                                     target:self selector:@selector(checkForCallback:) userInfo:nil repeats:YES];
+    self.original = [TRAPIClient accessKey];
     [TRAPIClient loginWith:self.phoneField.text block:^(BOOL success, NSString *phone) {
-
+            UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"Confirmation Message Sent" message:@"We sent a link to your phone number. Open it up to continue." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
         ABAddressBookRef iPhoneAddressBook = ABAddressBookCreate();
         ABRecordRef newPerson = ABPersonCreate();
         
@@ -65,19 +71,32 @@
     }];
 }
 
--(void)viewDidAppear:(BOOL)animated {
-    NSString *accessKey = [TRAPIClient accessKey];
-    if (accessKey) {
+- (void)checkForCallback:(id)sender {
+    if (self.original == [TRAPIClient accessKey]) return;
+    else {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
-- (void)keyboardWasShown:(NSNotification *)notification {
-    NSDictionary* info = [notification userInfo];
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField.text stringByReplacingOccurrencesOfString:@"[^0-9]" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, [textField.text length])].length > 10) {
+        self.checkImage.image = [UIImage imageNamed:@"Check"];
+        
+    } else {
+        self.checkImage.image = [UIImage imageNamed:@"Check Inactive"];
+    }
+    
+    return YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    
+}
+
+- (void)keyboardWasShown:(NSNotification *)notification {
     CGRect frame = self.view.frame;
-    frame.origin.y -= kbSize.height;
-    frame.size.height += kbSize.height;
+    frame.origin.y -= 100;
+    frame.size.height += 100;
     [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
     [UIView setAnimationDuration:0.2];
     self.view.frame = frame;
